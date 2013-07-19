@@ -7,6 +7,8 @@ MGC::Application.routes.draw do
 
   resources :games
   
+  delete '/ongoings', to:'ongoings#destroyByUDID'
+  
   root to: 'home#index'
 
   # The priority is based upon order of creation:
