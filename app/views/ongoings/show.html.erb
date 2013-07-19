@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Game:</b>
+  <%= @ongoing.game_id %>
+</p>
+
+<p>
+  <b>Udid:</b>
+  <%= @ongoing.udid %>
+</p>
+
+
+<%= link_to 'Edit', edit_ongoing_path(@ongoing) %> |
+<%= link_to 'Back', ongoings_path %>

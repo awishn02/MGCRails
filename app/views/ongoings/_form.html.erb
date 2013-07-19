@@ -1,0 +1,25 @@
+<%= form_for(@ongoing) do |f| %>
+  <% if @ongoing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ongoing.errors.count, "error") %> prohibited this ongoing from being saved:</h2>
+
+      <ul>
+      <% @ongoing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :game_id %><br />
+    <%= f.number_field :game_id %>
+  </div>
+  <div class="field">
+    <%= f.label :udid %><br />
+    <%= f.text_field :udid %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
