@@ -1,0 +1,23 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    
+}
+
+.title { 
+    width:60%;
+    height:230px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-115px 0 0 -30%;
+    background: yellow;
+}
+
+.title h1 {
+    font-family: 'Pacifico';
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+}

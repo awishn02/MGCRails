@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+ 
+ @font-face {
+     font-family: Pacifico;
+     src: url('Pacifico.ttf');
+}
