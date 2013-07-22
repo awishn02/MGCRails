@@ -5,7 +5,7 @@ class OngoingsController < ApplicationController
     @ongoings = Ongoing.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @ongoings }
+      format.json { render json: @ongoings.to_json(:include => :users) }
     end
   end
 
@@ -40,6 +40,7 @@ class OngoingsController < ApplicationController
   # POST /ongoings.json
   def create
     @ongoing = Ongoing.new(params[:ongoing])
+    
 
     respond_to do |format|
       if @ongoing.save
@@ -83,7 +84,7 @@ class OngoingsController < ApplicationController
   # DELETE /ongoings
   # DELETE /ongoings.json
   def destroyByUDID
-    @game = Ongoing.find_by_udid(params[:udid])
+    @game = Ongoing.find_by_user_id(params[:user_id])
     logger.info params
     @game.destroy
     respond_to do |format|

@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Game</th>
-    <th>Udid</th>
+    <th>User Id</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @ongoings.each do |ongoing| %>
   <tr>
     <td><%= ongoing.game_id %></td>
-    <td><%= ongoing.udid %></td>
+    <td><%= ongoing.user_id %></td>
     <td><%= link_to 'Show', ongoing %></td>
     <td><%= link_to 'Edit', edit_ongoing_path(ongoing) %></td>
     <td><%= link_to 'Destroy', ongoing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

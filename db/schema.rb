@@ -11,14 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130719010620) do
+ActiveRecord::Schema.define(:version => 20130721133715) do
 
   create_table "games", :force => true do |t|
-    t.string   "udid"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  create_table "games_users", :id => false, :force => true do |t|
+    t.integer "game_id"
+    t.integer "user_id"
+  end
+
+  add_index "games_users", ["game_id", "user_id"], :name => "index_games_users_on_game_id_and_user_id"
 
   create_table "locations", :force => true do |t|
     t.integer  "game_id"
@@ -31,9 +38,21 @@ ActiveRecord::Schema.define(:version => 20130719010620) do
 
   create_table "ongoings", :force => true do |t|
     t.integer  "game_id"
-    t.string   "udid"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "udid"
+    t.integer  "ongoing_id"
+    t.integer  "game_id"
+  end
+
+  add_index "users", ["game_id"], :name => "index_users_on_game_id"
+  add_index "users", ["ongoing_id"], :name => "index_users_on_ongoing_id"
 
 end

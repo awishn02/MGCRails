@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Udid</th>
+    <th>User Id</th>
     <th>Name</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @games.each do |game| %>
   <tr>
-    <td><%= game.udid %></td>
+    <td><%= game.user_id %></td>
     <td><%= game.name %></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>

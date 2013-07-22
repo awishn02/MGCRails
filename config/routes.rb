@@ -1,4 +1,6 @@
 MGC::Application.routes.draw do
+  resources :users
+
   get "home/index"
 
   resources :ongoings
@@ -6,6 +8,9 @@ MGC::Application.routes.draw do
   resources :locations
 
   resources :games
+  
+  #get '/ingame', to: "users#inGame"
+  match 'users/inGame/:game_id/:user_id' => 'users#inGame'
   
   delete '/ongoings', to:'ongoings#destroyByUDID'
   

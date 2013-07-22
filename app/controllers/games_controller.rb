@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     @games = Game.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @games.to_json(:include => :locations)}
+      format.json { render json: @games.to_json(:include => [:users,:locations])}
     end
   end
 
@@ -17,7 +17,7 @@ class GamesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @game.to_json(:include => :locations) }
+      format.json { render json: @game.to_json(:include => [:users, :locations]) }
     end
   end
 
