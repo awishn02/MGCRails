@@ -70,6 +70,7 @@ class UsersController < ApplicationController
     else
         respond_to do |format|
           if @u2 != nil
+            UserMailer.restore(@u2).deliver
             format.html { redirect_to @u2, notice: 'Udid exists'}
             format.json { render :json => {:user => @u2, :message => "Udid exists"}, notice: 'Udid exists'}
           else

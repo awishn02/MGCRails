@@ -3,7 +3,11 @@ class UserMailer < ActionMailer::Base
  
   def welcome_email(user)
     @user = user
-    @url  = 'http://www.google.com'
     mail(to: @user.email, subject: 'Welcome to the Midnight Golf Club')
+  end
+  
+  def restore(user)
+    @user = user
+    @url = 'restore://username/'+user.username
   end
 end
