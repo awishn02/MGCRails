@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @u1 = User.find_by_username(params[:user][:username])
-    @u2 = User.find_by_udid(params[:user][:udid])
+    @u2 = User.find_by_email(params[:user][:email])
     
     if @u1 == nil && @u2 == nil
         @user = User.new(params[:user])
