@@ -8,7 +8,7 @@ class UserMailer < ActionMailer::Base
   
   def restore(user)
     @user = user
-    @url = 'restore://'+user.username+'/'+user.id
+    @url = 'restore://'+user.username+'/'+user.id.to_s
     mail(to: @user.email, subject: 'Welcome back to the Midnight Golf Club')
   end
 end
