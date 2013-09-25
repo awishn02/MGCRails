@@ -85,7 +85,7 @@ class OngoingsController < ApplicationController
   # DELETE /ongoings.json
   def destroyByUDID
     @game = Ongoing.find_by_user_id(params[:user_id])
-    logger.info params
+    logger.info params[:user_id]
     @game.destroy
     respond_to do |format|
       format.html { redirect_to games_url }
